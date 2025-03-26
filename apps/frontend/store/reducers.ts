@@ -7,11 +7,7 @@ import {
   fetchUsers,
   setSuccess,
 } from "./actions";
-import { UserValues } from "@/model/users";
-
-export type User = Omit<UserValues, "recentlyActive"> & {
-  recentlyActive: string;
-};
+import { UserResponse as User } from "@shared/types";
 
 export type Meta = {
   page: number;

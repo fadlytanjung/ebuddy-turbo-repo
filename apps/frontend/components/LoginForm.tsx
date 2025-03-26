@@ -56,6 +56,11 @@ const LoginForm: React.FC = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            slotProps={{
+              inputLabel: {
+                shrink: true,
+              },
+            }}
           />
           <TextField
             fullWidth
@@ -66,6 +71,11 @@ const LoginForm: React.FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            slotProps={{
+              inputLabel: {
+                shrink: true,
+              },
+            }}
           />
           <Button
             type="submit"

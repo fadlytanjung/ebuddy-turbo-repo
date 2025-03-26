@@ -1,7 +1,7 @@
 import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
-import env from "@/lib/env";
-import { QueryParams } from "@/lib/types";
-import { UserValues } from "@/model/users";
+import { env } from "@shared/env";
+import { QueryParams } from "@shared/types";
+import { UserValues } from "@shared/model";
 
 export const setLoading = createAction<boolean>("user/setLoading");
 export const setError = createAction<string | null>("user/setError");
@@ -12,7 +12,7 @@ export const updateUser = createAsyncThunk(
   async (data: UserValues, thunkAPI) => {
     try {
       const response = await fetch(
-        `${env.NEXT_PUBLIC_API_BASE_URL}/user/update-user-data`,
+        `${env.API_BASE_URL}/user/update-user-data`,
         {
           method: "PUT",
           headers: {
@@ -42,7 +42,7 @@ export const fetchUser = createAsyncThunk(
   async (id: string, thunkAPI) => {
     try {
       const response = await fetch(
-        `${env.NEXT_PUBLIC_API_BASE_URL}/user/fetch-user-data/${id}`,
+        `${env.API_BASE_URL}/user/fetch-user-data/${id}`,
         {
           method: "GET",
           headers: {
@@ -67,7 +67,7 @@ export const fetchUsers = createAsyncThunk(
   async ({ page, size, q }: QueryParams, thunkAPI) => {
     try {
       const response = await fetch(
-        `${env.NEXT_PUBLIC_API_BASE_URL}/user/fetch-user-data?page=${page}&page_size=${size}&q=${q}`,
+        `${env.API_BASE_URL}/user/fetch-user-data?page=${page}&page_size=${size}&q=${q}`,
         {
           method: "GET",
           headers: {

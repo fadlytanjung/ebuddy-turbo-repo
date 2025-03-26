@@ -2,7 +2,7 @@
 
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UserSchema, UserValues } from "@/model/users";
+import { UserSchema, UserValues } from "@shared/model";
 import { TextField, Box, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { fetchUser, setError, setLoading, updateUser } from "@/store/actions";
